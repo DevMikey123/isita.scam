@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+#darkModeToggle {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label, form input, form select, form button {
+    margin-bottom: 0.5rem;
+}
+
+form button {
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#scamEntries {
+    list-style-type: none;
+    padding: 0;
+}
+
+#scamEntries li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
