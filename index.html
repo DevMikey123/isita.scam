@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scam Number Reporting</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Scam Number Reporting</h1>
+        <button id="darkModeToggle">Toggle Dark Mode</button>
+    </header>
+    <main>
+        <section id="submission-form">
+            <h2>Submit Scam Number, Site, or Email</h2>
+            <form id="scamForm">
+                <label for="scamType">Type:</label>
+                <select id="scamType" required>
+                    <option value="number">Number</option>
+                    <option value="site">Site</option>
+                    <option value="email">Email</option>
+                </select>
+                <label for="scamDetail">Detail:</label>
+                <input type="text" id="scamDetail" required>
+                <label for="username">Username (Optional):</label>
+                <input type="text" id="username">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section id="search">
+            <h2>Search for Scam Numbers</h2>
+            <input type="text" id="searchInput" placeholder="Search...">
+            <div id="searchResults"></div>
+        </section>
+        <section id="scamList">
+            <h2>Reported Scam Numbers, Sites, and Emails</h2>
+            <ul id="scamEntries">
+                <!-- Dynamic content goes here -->
+            </ul>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
