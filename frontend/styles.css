@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #6200ee;
+    color: #ffffff;
+}
+
+header h1 {
+    margin: 0;
+}
+
+#submission-form, #scam-list {
+    padding: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 1rem;
+}
+
+form input, form textarea, form select, form button {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #6200ee;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #3700b3;
+}
+
+#search {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+}
+
+#results {
+    list-style-type: none;
+    padding: 0;
+}
+
+#results li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode header {
+    background-color: #bb86fc;
+}
+
+.dark-mode form button {
+    background-color: #bb86fc;
+}
+
+.dark-mode form button:hover {
+    background-color: #3700b3;
+}
+
+/* Additional styles for login form and notifications */
+#login-form, #notification-center {
+    padding: 1rem;
+}
+
+#login-form form, #notification-center ul {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form form input, #login-form form button, #notification-center ul li {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+#login-form form button, #notification-center ul li {
+    background-color: #6200ee;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+#login-form form button:hover, #notification-center ul li:hover {
+    background-color: #3700b3;
+}
+
+#login-form #show-register {
+    color: #6200ee;
+    cursor: pointer;
+}
+
+#login-form #show-register:hover {
+    color: #3700b3;
+}
