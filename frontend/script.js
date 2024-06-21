@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
         try {
-            const res = await fetch('https://your-backend-url/api/auth/login', {
+            const res = await fetch('https://isita-scam-1z2a7dca3-damanmikeys-projects.vercel.app/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('register-email').value;
         const password = document.getElementById('register-password').value;
         try {
-            const res = await fetch('https://your-backend-url/api/auth/register', {
+            const res = await fetch('https://isita-scam-1z2a7dca3-damanmikeys-projects.vercel.app/api/auth/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, email, password })
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const detail = document.getElementById('scam-detail').value;
         const description = document.getElementById('description').value;
         try {
-            const res = await fetch('https://your-backend-url/api/scams', {
+            const res = await fetch('https://isita-scam-1z2a7dca3-damanmikeys-projects.vercel.app/api/scams', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fetchScams = async () => {
         try {
-            const res = await fetch('https://your-backend-url/api/scams');
+            const res = await fetch('https://isita-scam-1z2a7dca3-damanmikeys-projects.vercel.app/api/scams');
             const scams = await res.json();
             results.innerHTML = '';
             scams.forEach(scam => {
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.classList.contains('report')) {
             const id = e.target.getAttribute('data-id');
             try {
-                const res = await fetch('https://your-backend-url/api/scams/report', {
+                const res = await fetch('https://isita-scam-1z2a7dca3-damanmikeys-projects.vercel.app/api/scams/report', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fetchNotifications = async () => {
         try {
-            const res = await fetch('https://your-backend-url/api/notifications', {
+            const res = await fetch('https://isita-scam-1z2a7dca3-damanmikeys-projects.vercel.app/api/notifications', {
                 headers: {
                     'Authorization': token
                 }
