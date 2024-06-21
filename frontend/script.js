@@ -5,39 +5,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const loginToggle = document.getElementById('login-toggle');
     const notificationToggle = document.getElementById('notification-toggle');
-    const loginForm = document.getElementById('login');
-    const registerForm = document.getElementById('register');
-    const showRegister = document.getElementById('show-register');
+    const loginForm = document.getElementById('login-form');
     const notificationCenter = document.getElementById('notification-center');
-    const notificationsList = document.getElementById('notifications');
-    let darkMode = false;
-    let token = null;
+    const login = document.getElementById('login');
+    const register = document.getElementById('register');
+    const showRegister = document.getElementById('show-register');
+    let token = '';
 
-    // Toggle dark mode
     themeToggle.addEventListener('click', () => {
-        darkMode = !darkMode;
-        document.body.classList.toggle('dark-mode', darkMode);
+        document.body.classList.toggle('dark-mode');
     });
 
-    // Toggle login form
     loginToggle.addEventListener('click', () => {
-        const loginSection = document.getElementById('login-form');
-        loginSection.style.display = loginSection.style.display === 'none' ? 'block' : 'none';
+        loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
     });
 
-    // Toggle notification center
     notificationToggle.addEventListener('click', () => {
         notificationCenter.style.display = notificationCenter.style.display === 'none' ? 'block' : 'none';
+        fetchNotifications();
     });
 
-    // Show register form
     showRegister.addEventListener('click', () => {
-        loginForm.style.display = 'none';
-        registerForm.style.display = 'block';
+        login.style.display = 'none';
+        register.style.display = 'block';
     });
 
-    // Login form submission
-    loginForm.addEventListener('submit', async (e) => {
+    login.addEventListener('submit', async (e) => {
         e.preventDefault();
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
@@ -60,8 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Register form submission
-    registerForm.addEventListener('submit', async (e) => {
+    register.addEventListener('submit', async (e) => {
         e.preventDefault();
         const username = document.getElementById('register-username').value;
         const email = document.getElementById('register-email').value;
@@ -75,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await res.json();
             if (data.message) {
                 alert(data.message);
-                registerForm.style.display = 'none';
+                loginForm.style.display = 'none';
             } else {
                 alert(data.error);
             }
@@ -84,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Submit scam form
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const username = document.getElementById('username').value;
@@ -112,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Fetch scams
     const fetchScams = async () => {
         try {
             const res = await fetch('https://your-backend-url/api/scams');
@@ -128,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Search scams
     search.addEventListener('input', () => {
         const searchTerm = search.value.toLowerCase();
         const items = results.getElementsByTagName('li');
@@ -138,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Report scam
     results.addEventListener('click', async (e) => {
         if (e.target.classList.contains('report')) {
             const id = e.target.getAttribute('data-id');
@@ -159,6 +147,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Fetch initial scams
+    const fetchNotifications = async () => {
+        try {
+            const res = await fetch('https://your-backend-url/api/notifications', {
+                headers: {
+                    'Authorization': token
+                }
+            });
+            const notifications = await res.json();
+            const notificationList = document.getElementById('notifications');
+            notificationList.innerHTML = '';
+            notifications.forEach(notification => {
+                const listItem = document.createElement('li');
+                listItem.textContent = notification.message;
+                notificationList.appendChild(listItem);
+            });
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
     fetchScams();
 });
